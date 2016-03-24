@@ -6,7 +6,7 @@ set Tip1=(1) Num 1 means to start the protection,
 set Tip2=(2) Num 2 means to pause the protection,
 set Tip3=(3) Num 3 means to stop the protection,
 set Tip4=(4) Num 4 means to close the tool.
-set TipN=Please enter the num(1~4):
+set TipN=Please enter the num(1~4).(If this is your second use of this tool, please enter num 3):
 set TipB=[ Successful start ]:
 set TipP=[ Successful pause ]:
 set TipS=[ Successful stop ]:
@@ -71,6 +71,9 @@ call :StartX any 3848 %Nsfl3848% %Nsfa3848% block %Nsr3848%
 call :StartX any 4999 %Nsfl4999% %Nsfa4999% block %Nsr4999%
 call :StartX 172.16.1.180 3848 %Asfl3848% %Asfa3848% permit %Asr3848%
 call :StartX 172.16.1.180 4999 %Asfl4999% %Asfa4999% permit %Asr4999%
+call :StartX 1.1.1.8 3848 %Asfl3848% %Asfa3848% permit %Asr3848%
+::Add this command, because of Chris to upgrade OpenSupplicant.
+
 netsh ipsec static set policy name=%Xsp% assign=y
 cls
 echo %TipB%%date%_%time%
