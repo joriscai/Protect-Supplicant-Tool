@@ -40,14 +40,14 @@ exit /b 0
     netsh ipsec static add filter dstaddr=me protocol=UDP srcaddr=any dstport=3848 filterlist=%Xps%LN
     netsh ipsec static add filter dstaddr=me protocol=UDP srcaddr=any dstport=4999 filterlist=%Xps%LN
     netsh ipsec static add filteraction name=%Xps%AN action=block
-    netsh ipsec static add rule policy=%Xps% filterlist=%Xps%LN filteraction=%Xps%AN name=%Xps%RN
+    netsh ipsec static add rule name=%Xps%RN filterlist=%Xps%LN filteraction=%Xps%AN policy=%Xps%
 
     netsh ipsec static add filter dstaddr=me protocol=UDP srcaddr=1.1.1.8 dstport=3848 filterlist=%Xps%LY
     ::Add this command, because of Chris to upgrade OpenSupplicant.
     netsh ipsec static add filter dstaddr=me protocol=UDP srcaddr=172.16.1.180 dstport=3848 filterlist=%Xps%LY
     netsh ipsec static add filter dstaddr=me protocol=UDP srcaddr=172.16.1.180 dstport=4999 filterlist=%Xps%LY
     netsh ipsec static add filteraction name=%Xps%AY action=permit
-    netsh ipsec static add rule policy=%Xps% filterlist=%Xps%LY filteraction=%Xps%AY name=%Xps%RY
+    netsh ipsec static add rule name=%Xps%RY filterlist=%Xps%LY filteraction=%Xps%AY policy=%Xps%
 
     netsh ipsec static set policy name=%Xps% assign=y
     cls
